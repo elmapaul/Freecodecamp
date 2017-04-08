@@ -1,0 +1,33 @@
+Return true if the given string is a palindrome. Otherwise, return false.
+
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+/***** js code *****/
+
+function palindrome(str) {
+
+  var state = false;
+  var s = str;
+  var b = false;  
+
+
+  var str1 = s.replace(/[^\w\s]/gi,"");  // remove special symbols
+  
+  str1 = str1.replace(/[_-]/g, "");
+  
+  str1 = str1.replace(/\s+/g, '');    // remove spaces
+  
+  str1 = str1.toLowerCase();
+  
+  var str2 = str1.split("").reverse().join("");  // reverse string  
+  
+  for (var z = 0; z <= s.length; z++)
+  {
+    if (str1[z] != str2[z]) return false;
+    else b = true;
+  }  
+  
+  return b;
+}
+
+palindrome("A man, a plan, a canal. Panama");
