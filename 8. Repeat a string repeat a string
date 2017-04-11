@@ -1,0 +1,19 @@
+Repeat a given string (first argument) num times (second argument). Return an empty string if num is not a positive number.
+
+/***** js code *****/
+
+function repeatStringNumTimes(str, num) {
+
+  var s = "";
+  
+  if (num < 0) str = "";
+  else {
+    for (var x = 0; x < num; x++){
+      s += str;
+    }
+  }
+    
+  return s;
+}
+
+repeatStringNumTimes("abc", 3);
