@@ -1,0 +1,26 @@
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+
+Note that inserting the three dots to the end will add to the string length.However, if the given maximum string length num is less than or equal to 3, then the addition of the three dots does not add to the string length in determining the truncated string.
+
+/****** js code ******/
+
+
+function truncateString(str, num) {
+  
+    var s="";  
+
+    if (num == 2) return str[0] + str[1] + "...";
+  
+    if (str.length <= 3) 
+    return str.slice(0,num) + "...";
+  
+    if (str.length <= num) return str;
+
+    for (var i = 0; i < num-3; i++)
+        s+=str[i];
+
+
+    return s + "...";
+}
+
+truncateString("Absolutely Longer", 2);
