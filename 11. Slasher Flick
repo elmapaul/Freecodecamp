@@ -1,0 +1,18 @@
+Return the remaining elements of an array after chopping off n elements from the head.
+
+The head means the beginning of the array, or the zeroth index.
+
+/***** js code *****/
+
+function slasher(arr, howMany) {
+
+  var ar = [];
+  
+  if (howMany === 0) return arr;
+  
+  ar = arr.splice(howMany,howMany+1);
+  
+  return ar;
+}
+
+slasher([1, 2, 3], 0);
