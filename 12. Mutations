@@ -1,0 +1,32 @@
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+/***** js code ******/
+
+
+function mutation(arr) {
+  
+  var arr1 = arr[0];
+  var arr2 = arr[1];
+  
+  ar1 = arr1.toLowerCase();
+  ar2 = arr2.toLowerCase();
+  
+  var e = true;
+  
+    for (var z = 0; z < ar2.length; z++)
+    {
+
+      if (ar1.indexOf(ar2[z]) < 0) 
+      {
+        return false;
+      }
+
+    }
+
+    return true;
+
+}
+
+mutation(["hello", "hey"]);
