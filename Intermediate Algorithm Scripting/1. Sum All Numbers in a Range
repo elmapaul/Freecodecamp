@@ -1,0 +1,28 @@
+We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
+
+The lowest number will not always come first.
+
+/***** js *****/
+
+function sumAll(arr) {
+  var a = arr[0];
+  var b = arr[1];
+  
+  
+  var max = Math.max(arr[0],arr[1]);
+  var min = Math.min(arr[0],arr[1]);
+  
+  var sum = min;
+  //if (a > b) max = a;
+  //if (b >= a) max = b;
+  
+  for (var i = min; i <= max; i++){
+    sum+=i;
+  }
+  
+
+  
+  return sum-min;
+}
+
+sumAll([5, 10]);
