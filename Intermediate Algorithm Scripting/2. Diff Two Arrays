@@ -1,0 +1,47 @@
+Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+/**** js *****/
+
+
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  var minarr = [];
+  var maxarr = [];
+  
+  if (arr1.length >= arr2.length) {
+    maxarr = arr1;
+    minarr = arr2;
+  }
+  
+  else {
+    maxarr = arr2;
+    minarr = arr1;
+  }
+
+    for (var maxar = 0; maxar < maxarr.length; maxar++){
+
+      var b = false;
+      
+      if (minarr.indexOf(maxarr[maxar]) >= 0) b =true;
+      if (b === false) newArr.push(maxarr[maxar]);
+     
+      }
+  
+      var temp = [];
+      temp = minarr;
+      minarr = maxarr;
+      maxarr = temp;
+  
+      for (var maxarrr = 0; maxarrr < maxarr.length; maxarrr++){
+
+      var b2 = false;
+      
+      if (minarr.indexOf(maxarr[maxarrr]) >= 0) b2 =true;
+      if (b2 === false) newArr.push(maxarr[maxarrr]);
+     
+      }
+  
+  return newArr;
+}
+
+diffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4]);
