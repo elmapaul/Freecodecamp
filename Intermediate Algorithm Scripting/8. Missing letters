@@ -1,0 +1,18 @@
+Find the missing letter in the passed letter range and return it. If all letters are present in the range, return undefined.
+
+/***** js ******/
+
+
+function fearNotLetter(str) {
+  
+  var alpha = "abcdefghijklmnopqrstuvwxyz";
+  var i = alpha.indexOf(str[0]);
+  
+  for (var z = 0; z < str.length; z++){
+      if (str[z] !== alpha[z+i]) return alpha[z+i]; 
+  }
+
+  return undefined;
+}
+
+fearNotLetter("abce");
