@@ -1,0 +1,17 @@
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+/**** js code *****/
+
+function convertHTML(str) {
+
+  var st = str.replace('&', '&amp;');
+  
+  st = st.replace(/</g, '&lt;');
+  st = st.replace(/>/g, '&gt;');
+  st = st.replace(/"/g, '&quot;');
+  st = st.replace(/'/g, '&apos;');
+  
+  return st;
+}
+
+convertHTML("Hamburgers < Pizza < Tacos");
