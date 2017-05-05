@@ -1,0 +1,47 @@
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is evenly divisible by all numbers between 1 and 3.
+
+/***** js code *****/
+
+function smallestCommons(arr) {   
+
+  var max = 0;
+  var min = 0;  
+  var b = false;    // state if stop a calculation of smallest common
+  var c = [];
+  var counter = 0;
+  
+  // track which is maximum [pure code without Math's methods]
+  if (arr[1] >= arr[0]) {
+    max = arr[1];
+    min = arr[0];
+  } 
+  
+  else {
+    max = arr[0];
+    min = arr[1];
+  }
+  
+  // create an array of numbers between minimum and maximum
+  for (var x = min; x <= max; x++)  c.push(x);
+  
+  // calculate optimum increment for counter -> calculation of last two numbers
+  var inc = c[c.length - 1] * (c[c.length - 1] - 1);
+    
+  while ( counter < 10000000 ) {     
+    counter += inc;
+    b = true;  // set true for prime number
+    
+    for (var z = 0; z <= c.length; z++) {      
+      if ((counter % c[z]) > 0) {
+        b = false;   // is not prime
+      }
+    }
+    
+    if (b === true) return counter;    
+  }  
+}
+
+smallestCommons([1, 5]);
