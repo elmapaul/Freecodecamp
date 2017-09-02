@@ -1,0 +1,39 @@
+// solved: 02/9/17
+function convertToRoman(num) {
+  var romanNum = {
+    M : num / 1000,
+    D : num % 1000 / 500,
+    C : ((num % 1000) % 500) / 100,
+    L : ((num % 1000) % 500) % 100 / 50,
+    X : (((num % 1000) % 500) % 100) % 50 / 10,
+    V : ((((num % 1000) % 500) % 100) % 50) % 10 / 5,
+    I : ((((num % 1000) % 500) % 100) % 50) % 10 % 5
+  }
+  
+  // Roman number string
+  var r = "";
+  
+  for(var i = 0; i < 7; i++){
+     
+    for (var c = 0; c < Math.floor(romanNum[Object.keys(romanNum)[i]]); c++){
+      var prev = Math.floor(romanNum[Object.keys(romanNum)[i-1]]);
+                            
+      if (Math.floor(romanNum[Object.keys(romanNum)[i]]) > 3 && prev == 1){
+        r = r.slice(0, -1); 
+        r += Object.keys(romanNum)[i] + Object.keys(romanNum)[i - 2];
+        break;
+      }
+      
+      if (Math.floor(romanNum[Object.keys(romanNum)[i]]) > 3 && prev != 1){
+         r += Object.keys(romanNum)[i] + Object.keys(romanNum)[i - 1];
+         break;
+      }
+      
+      else r += Object.keys(romanNum)[i];
+      } 
+  }
+  
+  return r;
+}
+
+convertToRoman(29);
