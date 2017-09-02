@@ -1,4 +1,5 @@
 // solved: 02/9/17
+// max number in challenge -> 3999
 function convertToRoman(num) {
   var romanNum = {
     M : num / 1000,
@@ -13,7 +14,7 @@ function convertToRoman(num) {
   // Roman number string
   var r = "";
   
-  for(var i = 0; i < 7; i++){
+  for(var i = 0; i < romanNum.length; i++){
      
     for (var c = 0; c < Math.floor(romanNum[Object.keys(romanNum)[i]]); c++){
       var prev = Math.floor(romanNum[Object.keys(romanNum)[i-1]]);
@@ -31,9 +32,6 @@ function convertToRoman(num) {
       
       else r += Object.keys(romanNum)[i];
       } 
-  }
-  
+  }  
   return r;
 }
-
-convertToRoman(29);
