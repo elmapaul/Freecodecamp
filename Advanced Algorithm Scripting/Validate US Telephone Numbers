@@ -1,0 +1,24 @@
+// 5-09-17
+// Not elegant solution, but it's mine ;) Could become smaller in code.
+
+function telephoneCheck(str) {  
+  // 1 (555) 555 5555
+  var myReg1 = new RegExp('^1 \\(\\d{3}\\) \\d{3} \\d{4}$','g');
+  // 1 555-555-5555 or 1 555 555 5555
+  var myReg2 = new RegExp('^1 \\d{3}(-|\\s?)\\d{3}(-|\\s?)\\d{4}$','g');
+  // 1(555)555-5555 or 1 (555) 555-5555
+  var myReg9 = new RegExp('^1\\s?\\(\\d{3}\\)\\s?\\d{3}-\\d{4}$','g');
+  // 555-555-5555 or 5555555555
+  var myReg7 = new RegExp('^\\d{3}-?\\d{3}-?\\d{4}$','g');
+  // (555) 555-5555 or (555)555-5555
+  var myReg3 = new RegExp('^\\(\\d{3}\\)\\s?\\d{3}-\\d{4}$','g');
+  
+  if (str.match(myReg1)) return true;
+  else if (str.match(myReg2)) return true;
+  else if (str.match(myReg9)) return true;
+  else if (str.match(myReg3)) return true;
+  else if (str.match(myReg7)) return true;
+  else return false;
+}
+
+telephoneCheck("(555-555-5555");
