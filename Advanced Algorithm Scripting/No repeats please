@@ -1,5 +1,5 @@
 // 14-10-17
-// Not knowing combinatorics I had to write "dirty" code
+// Not knowing well combinatorics I had to write "dirty" code
 
 function permAlone(str) {
   // count distinct symbols
@@ -58,8 +58,7 @@ function permAlone(str) {
     
     temp = temp - f * (dif);//!!?
     return temp;
-  }
-  
+  }  
   return 0;
 }
 
