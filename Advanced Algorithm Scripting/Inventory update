@@ -1,0 +1,58 @@
+// Date: 17/10/17
+// * Below code certainly needs some refactoring(b/c of many loops)
+function updateInventory(arr1, arr2) {
+
+  var exist = false;
+  var propArr = [];
+  var propArr1 = [];
+  
+  for (var i2 = 0; i2 < arr2.length; i2++){
+    exist = false;
+    
+    for (var i = 0; i < arr1.length; i++){      
+      if (arr2[i2][1] === arr1[i][1]){
+        arr1[i][0] = Number(arr1[i][0]) + Number(arr2[i2][0]);
+        exist = true;
+        break;
+      }     
+    }
+    
+    if (!exist){
+      arr1.push(arr2[i2]);
+    }
+  }
+  /*********** Sorting, swaping ***********/
+  for (var v = 0; v < arr1.length; v++){
+    propArr1.push(arr1[v]);
+    propArr.push(arr1[v][1]);
+  }
+  
+  for (var v2 = 0; v2 < arr1.length; v2++){
+    propArr1[v2][1] = propArr1[v2][0];
+    propArr1[v2][0] = propArr[v2];
+  }
+  
+  propArr1.sort();  
+  
+  // swap elements at each array's object
+  for (var v3 = 0; v3 < propArr1.length; v3++){
+    // temp var for swap
+    var t = propArr1[v3][0];
+    propArr1[v3][0] = propArr1[v3][1];
+    propArr1[v3][1] = t;
+  }
+  
+  return propArr1;
+}
+
+var curInv = [[0, "Bowling Ball"], 
+              [0, "Dirty Sock"], 
+              [0, "Hair Pin"], 
+              [0, "Microphone"]];
+
+var newInv = [[1, "Hair Pin"], 
+              [1, "Half-Eaten Apple"], 
+              [1, "Bowling Ball"], 
+              [1, "Toothpaste"]];
+
+updateInventory(curInv, newInv);
