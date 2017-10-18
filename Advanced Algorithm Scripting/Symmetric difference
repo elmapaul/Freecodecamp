@@ -1,0 +1,39 @@
+// Date: 18/10/17
+function sym(args) {
+  // get all arguments and save them in array
+  var argums = Array.prototype.slice.call(arguments);
+  var uniq = [];
+
+  
+  for ( var i = 0; i < argums.length; i++ ){
+    var distinctArr = [];
+    // get an array i from arguments array
+    arr1 = argums[i];
+    
+    // create a copy of arr1 with distinct items 
+    arr1.forEach(function(item) {
+         if(distinctArr.indexOf(item) < 0) {
+             distinctArr.push(item);
+         }
+    });
+    
+    arr1 = distinctArr;
+    
+    // looking in uniq aray for equal item
+    // if element not find then add in uniq[]
+    for (var k = 0; k < arr1.length; k++){
+
+        if( uniq.indexOf(arr1[k]) < 0 ) {
+            uniq.push(arr1[k]);       
+         
+        }
+        else {
+            uniq.splice(uniq.indexOf(arr1[k]), 1);
+        }
+    }
+  }
+
+  return uniq;
+}
+
+sym([1, 2,1,2, 3], [5, 2, 1, 4]);
