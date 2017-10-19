@@ -1,0 +1,24 @@
+// Date: 19/10/17
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;  
+  var result = 0; 
+  var temp = 0; // temp var
+
+  for (var i = 0; i < arr.length; i++){
+    // get altitude from current array
+    temp = arr[i].avgAlt.toFixed(4);
+    // whole radius (earth + altitude)
+    temp = Number(temp) + earthRadius;
+    
+    result = Math.sqrt((4 * Math.pow(Math.PI, 2) * Math.pow(temp,3)) / GM);    
+    
+    // change property name(not directly)
+    delete arr[i].avgAlt;
+    arr[i].orbitalPeriod = Math.round(result);   
+  }
+  
+  return arr;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
